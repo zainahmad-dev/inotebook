@@ -1,38 +1,266 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f3e8ff 100%);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.navbar {
+  background: linear-gradient(90deg, #ffffff 0%, #f8fafc 100%) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card {
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-color: #2563eb;
+}
+
+.card-title {
+  font-weight: 700;
+  color: #1e3a8a;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline-primary {
+  border-width: 2px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-outline-danger {
+  border-width: 2px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-control, .form-select, textarea {
+  border: 1.5px solid #e4e7ec;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.form-control:focus, .form-select:focus, textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-label {
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.display-4 {
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.space-y-3 > div + div {
+  margin-top: 1.5rem;
+}
+
+.container {
+  max-width: 1100px;
+}
+
+.shadow-lg {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Navigation Links Hover */
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  color: #1e3a8a !important;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0 !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #2563eb !important;
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #2563eb !important;
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Button Hover Effects */
+.btn-outline-primary {
+  border: 2px solid #2563eb !important;
+  color: #2563eb !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  border-color: #1e40af !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline-danger {
+  border: 2px solid #dc2626 !important;
+  color: #dc2626 !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border-color: #b91c1c !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-primary {
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* Edit, Delete, Update, Cancel Button Hover */
+.btn-edit, .btn-delete, .btn-update, .btn-cancel {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-update {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  border: none !important;
+  font-weight: 600;
+  color: white !important;
+}
+
+.btn-update:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+}
+
+.btn-cancel {
+  border: 2px solid #6b7280 !important;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #f3f4f6 !important;
+  border-color: #4b5563 !important;
+  color: #1f2937 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Input Styling */
+.search-input {
+  border: 2px solid #e4e7ec !important;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 0.8rem 1.2rem !important;
+}
+
+.search-input:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1) !important;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-navbar {
+  border: 1.5px solid #e4e7ec !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  padding: 0.6rem 0.9rem !important;
+  font-size: 0.9rem;
+}
+
+.search-navbar:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+.search-navbar::placeholder {
+  color: #d1d5db;
 }

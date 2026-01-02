@@ -4,8 +4,8 @@ const fetchuser = require("../middleware/fetchuser");
 const Note = require("../models/Note");
 const { body, validationResult } = require("express-validator");
 
-// Route 1: Get all notes using: GET "/api/notes/fetchallnotes"  login required
-router.get("/fetchallnote", fetchuser, async (req, res) => {
+// Route 1: Get all notes using: GET "/api/notes/fetchallnotes" login required
+router.get("/fetchallnotes", fetchuser, async (req, res) => {
   try {
     const notes = await Note.find({ user: req.user.id });
     res.json(notes);
@@ -14,7 +14,7 @@ router.get("/fetchallnote", fetchuser, async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-// Route 2:Add a new notes using: post "/api/notes/fetchallnotes"  login required
+// Route 2: Add a new note using: POST "/api/notes/addnote" login required
 router.post(
   "/addnote",
   fetchuser,
@@ -46,7 +46,7 @@ router.post(
     }
   }
 );
-//Route 3 : Update an existing note using: PUT "/api/notes/updatenote"  login required
+// Route 3: Update an existing note using: PUT "/api/notes/updatenote/:id" login required
 router.put("/updatenote/:id", fetchuser, async (req, res) => {
   const { title, description, tag } = req.body;
   try {
@@ -83,15 +83,14 @@ router.put("/updatenote/:id", fetchuser, async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-module.exports = router;
 
-//Route 4: Delete an existing note using: DELETE "/api/notes/Deletenote"  login required
+// Route 4: Delete an existing note using: DELETE "/api/notes/deletenote/:id" login required
 router.delete("/deletenote/:id", fetchuser, async (req, res) => {
   try {
     //Find the note to be delete and delete it
     let note = await Note.findById(req.params.id);
     if (!note) {
-      res.status(404).send("Not Found");
+      return res.status(404).send("Not Found");
     }
     // Allow deletion only if user owns this note
     if (note.user.toString() !== req.user.id) {
